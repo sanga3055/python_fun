@@ -5,6 +5,9 @@
 # For complete pytube library check https://buildmedia.readthedocs.org/media/pdf/python-pytube/latest/python-pytube.pdf 
 # Example video: https://www.youtube.com/watch?v=2XN-u0fsSLw
 
+# User need to install pytube to run this program
+# You may use "pip3 install pytube" or "pip3 install pytube" 
+
 from pytube import YouTube
 
 URL = input("Enter a video URL: ")  # Get user input
@@ -32,11 +35,11 @@ print("Video Title is :",video.title)
 video_len = video.length
 
 def sec_to_hours(seconds):
-    a=str(seconds//3600) # a is to get duration of video in hours
-    b=str((seconds%3600)//60) # b is to get duration of video in Minutes
-    c=str((seconds%3600)%60) # c is to get duration of video in seconds
-    d=["{} hours {} mins {} seconds".format(a, b, c)]
-    return d
+    hour=str(seconds//3600) #  to get duration of video in hours
+    minutes=str((seconds%3600)//60) # to get duration of video in Minutes
+    second=str((seconds%3600)%60) # to get duration of video in seconds
+    video_duration=["{} hours {} mins {} seconds".format(hour, minutes, second)]
+    return video_duration
 
 print("Video Length is :",sec_to_hours(video_len))
 
@@ -70,8 +73,6 @@ else:
         exit()
 
 
-
-
 #print(video_streams) # Print the available video streams
 #print("\n mp4 filter:---->>> ",video_streams.filter(file_extension='mp4')) # Print the available mp4 video streams
 
@@ -80,3 +81,4 @@ else:
 # video_file = YouTube(video_link).streams.filter(res="720p").order_by('resolution').desc().first().download()
 
 # download ---> video.streams.get_by_itag(18).download()
+#-------------------------------------------------
